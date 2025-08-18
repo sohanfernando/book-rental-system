@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "50bbc099-c682-4f00-97c2-15c37c4a2efe",
+		"name": "Book Rental API",
+		"description": "CRUD APIs for Books and Rentals in the Book Rental Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29843780"
+	},
+	"item": [
+		{
+			"name": "Book APIs",
+			"item": [
+				{
+					"name": "Get all books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{ "key": "Accept", "value": "application/json" }
+						],
+						"url": { "raw": "http://localhost:8080/api/books" }
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [ { "key": "Accept", "value": "application/json" } ],
+								"url": { "raw": "http://localhost:8080/api/books" }
+							},
+							"status": "OK",
+							"code": 200,
+							"header": [ { "key": "Content-Type", "value": "application/json" } ],
+							"body": "[\n  {\n    \"id\": 1,\n    \"title\": \"Dune\",\n    \"author\": \"Frank Herbert\",\n    \"genre\": \"Sci-Fi\",\n    \"availabilityStatus\": \"AVAILABLE\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Add a new Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" },
+							{ "key": "Accept", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"The Pragmatic Programmer\",\n  \"author\": \"Andrew Hunt, David Thomas\",\n  \"genre\": \"Software\"\n}"
+						},
+						"url": { "raw": "http://localhost:8080/api/books" }
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{ "key": "Content-Type", "value": "application/json" },
+									{ "key": "Accept", "value": "application/json" }
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"The Pragmatic Programmer\",\n  \"author\": \"Andrew Hunt, David Thomas\",\n  \"genre\": \"Software\"\n}"
+								},
+								"url": { "raw": "http://localhost:8080/api/books" }
+							},
+							"status": "OK",
+							"code": 200,
+							"header": [ { "key": "Content-Type", "value": "application/json" } ],
+							"body": "{\n  \"id\": 2,\n  \"title\": \"The Pragmatic Programmer\",\n  \"author\": \"Andrew Hunt, David Thomas\",\n  \"genre\": \"Software\",\n  \"availabilityStatus\": \"AVAILABLE\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update book by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" },
+							{ "key": "Accept", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Dune (Updated)\",\n  \"author\": \"Frank Herbert\",\n  \"genre\": \"Science Fiction\",\n  \"availabilityStatus\": \"AVAILABLE\"\n}"
+						},
+						"url": { "raw": "http://localhost:8080/api/books/:id" }
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{ "key": "Content-Type", "value": "application/json" },
+									{ "key": "Accept", "value": "application/json" }
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Dune (Updated)\",\n  \"author\": \"Frank Herbert\",\n  \"genre\": \"Science Fiction\",\n  \"availabilityStatus\": \"AVAILABLE\"\n}"
+								},
+								"url": { "raw": "http://localhost:8080/api/books/:id" }
+							},
+							"status": "OK",
+							"code": 200,
+							"header": [ { "key": "Content-Type", "value": "application/json" } ],
+							"body": "{\n  \"id\": 1,\n  \"title\": \"Dune (Updated)\",\n  \"author\": \"Frank Herbert\",\n  \"genre\": \"Science Fiction\",\n  \"availabilityStatus\": \"AVAILABLE\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete book by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [ { "key": "Accept", "value": "application/json" } ],
+						"url": { "raw": "http://localhost:8080/api/books/:id" }
+					},
+					"response": [
+						{
+							"name": "204 No Content",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [ { "key": "Accept", "value": "application/json" } ],
+								"url": { "raw": "http://localhost:8080/api/books/:id" }
+							},
+							"status": "No Content",
+							"code": 204,
+							"header": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Rental APIs",
+			"item": [
+				{
+					"name": "Get all rentals",
+					"request": {
+						"method": "GET",
+						"header": [ { "key": "Accept", "value": "application/json" } ],
+						"url": { "raw": "http://localhost:8080/api/rentals" }
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [ { "key": "Accept", "value": "application/json" } ],
+								"url": { "raw": "http://localhost:8080/api/rentals" }
+							},
+							"status": "OK",
+							"code": 200,
+							"header": [ { "key": "Content-Type", "value": "application/json" } ],
+							"body": "[\n  {\n    \"id\": 10,\n    \"username\": \"paul.atreides\",\n    \"rentalDate\": \"2025-08-18\",\n    \"returnDate\": null,\n    \"book\": {\n      \"id\": 1,\n      \"title\": \"Dune\",\n      \"author\": \"Frank Herbert\",\n      \"genre\": \"Sci-Fi\",\n      \"availabilityStatus\": \"UNAVAILABLE\"\n    }\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a new rental",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" },
+							{ "key": "Accept", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"paul.atreides\",\n  \"rentalDate\": \"2025-08-18\",\n  \"bookId\": 1\n}"
+						},
+						"url": { "raw": "http://localhost:8080/api/rentals" }
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{ "key": "Content-Type", "value": "application/json" },
+									{ "key": "Accept", "value": "application/json" }
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"paul.atreides\",\n  \"rentalDate\": \"2025-08-18\",\n  \"bookId\": 1\n}"
+								},
+								"url": { "raw": "http://localhost:8080/api/rentals" }
+							},
+							"status": "OK",
+							"code": 200,
+							"header": [ { "key": "Content-Type", "value": "application/json" } ],
+							"body": "{\n  \"id\": 10,\n  \"username\": \"paul.atreides\",\n  \"rentalDate\": \"2025-08-18\",\n  \"returnDate\": null,\n  \"book\": {\n    \"id\": 1,\n    \"title\": \"Dune\",\n    \"author\": \"Frank Herbert\",\n    \"genre\": \"Sci-Fi\",\n    \"availabilityStatus\": \"UNAVAILABLE\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update rental by ID (e.g., add return date)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" },
+							{ "key": "Accept", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"returnDate\": \"2025-09-01\"\n}"
+						},
+						"url": { "raw": "http://localhost:8080/api/rentals/:id" }
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{ "key": "Content-Type", "value": "application/json" },
+									{ "key": "Accept", "value": "application/json" }
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"returnDate\": \"2025-09-01\"\n}"
+								},
+								"url": { "raw": "http://localhost:8080/api/rentals/:id" }
+							},
+							"status": "OK",
+							"code": 200,
+							"header": [ { "key": "Content-Type", "value": "application/json" } ],
+							"body": "{\n  \"id\": 10,\n  \"username\": \"paul.atreides\",\n  \"rentalDate\": \"2025-08-18\",\n  \"returnDate\": \"2025-09-01\",\n  \"book\": {\n    \"id\": 1,\n    \"title\": \"Dune\",\n    \"author\": \"Frank Herbert\",\n    \"genre\": \"Sci-Fi\",\n    \"availabilityStatus\": \"AVAILABLE\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete rental by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [ { "key": "Accept", "value": "application/json" } ],
+						"url": { "raw": "http://localhost:8080/api/rentals/:id" }
+					},
+					"response": [
+						{
+							"name": "204 No Content",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [ { "key": "Accept", "value": "application/json" } ],
+								"url": { "raw": "http://localhost:8080/api/rentals/:id" }
+							},
+							"status": "No Content",
+							"code": 204,
+							"header": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	]
+}
