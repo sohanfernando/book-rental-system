@@ -60,9 +60,9 @@ function Books({
 												<option value="UNAVAILABLE">UNAVAILABLE</option>
 											</select>
 										</div>
-										<div className="flex gap-2">
-											<button type="submit" className="px-3 py-2 bg-green-600 text-white rounded-md">Save</button>
-											<button type="button" onClick={cancelEditBook} className="px-3 py-2 bg-gray-600 text-white rounded-md">Cancel</button>
+										<div className="flex flex-col sm:flex-row gap-2">
+											<button type="submit" className="w-full sm:w-auto px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base bg-green-600 text-white rounded-md">Save</button>
+											<button type="button" onClick={cancelEditBook} className="w-full sm:w-auto px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base bg-gray-600 text-white rounded-md">Cancel</button>
 										</div>
 									</form>
 								) : (
@@ -73,9 +73,9 @@ function Books({
 										<div className="mt-2">
 											<small>Status: {book.availabilityStatus}</small>
 										</div>
-										<div className="flex gap-2 mt-2">
-											<button onClick={() => startEditBook(book)} className="px-3 py-2 bg-blue-600 text-white rounded-md">Edit</button>
-											<button onClick={() => handleDeleteBook(book.id)} className="px-3 py-2 bg-red-600 text-white rounded-md">Delete</button>
+										<div className="flex flex-col sm:flex-row gap-2 mt-2">
+											<button onClick={() => startEditBook(book)} className="w-full sm:w-auto px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base bg-blue-600 text-white rounded-md">Edit</button>
+											<button onClick={() => handleDeleteBook(book.id)} className="w-full sm:w-auto px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base bg-red-600 text-white rounded-md">Delete</button>
 										</div>
 									</>
 								)}
@@ -94,7 +94,7 @@ function Books({
 					<input className="p-2 border border-gray-200 rounded-md" placeholder="Title" value={bookForm.title} onChange={e => setBookForm(v => ({ ...v, title: e.target.value }))} required />
 					<input className="p-2 border border-gray-200 rounded-md" placeholder="Author" value={bookForm.author} onChange={e => setBookForm(v => ({ ...v, author: e.target.value }))} required />
 					<input className="p-2 border border-gray-200 rounded-md" placeholder="Genre" value={bookForm.genre} onChange={e => setBookForm(v => ({ ...v, genre: e.target.value }))} required />
-					<button type="submit" className="px-3 py-2 bg-gray-900 text-white rounded-md">Add Book</button>
+					<button type="submit" className="w-full sm:w-auto px-2 py-1.5 sm:px-3 sm:py-2 text-sm sm:text-base bg-gray-900 text-white rounded-md">Add Book</button>
 				</form>
 			</section>
 		</>

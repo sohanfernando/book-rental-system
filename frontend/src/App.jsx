@@ -187,13 +187,13 @@ function App() {
           <h1 className="text-xl sm:text-2xl font-bold">Book Rental</h1>
           <nav className="flex gap-2">
             <button
-              className={`px-3 py-1.5 rounded-md text-sm font-medium border ${activeTab === 'books' ? 'bg-gray-900 text-white border-gray-900' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-100'}`}
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-sm sm:text-base font-medium border ${activeTab === 'books' ? 'bg-gray-900 text-white border-gray-900' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-100'}`}
               onClick={() => setActiveTab('books')}
             >
               Books
             </button>
             <button
-              className={`px-3 py-1.5 rounded-md text-sm font-medium border ${activeTab === 'rentals' ? 'bg-gray-900 text-white border-gray-900' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-100'}`}
+              className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-sm sm:text-base font-medium border ${activeTab === 'rentals' ? 'bg-gray-900 text-white border-gray-900' : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-100'}`}
               onClick={() => setActiveTab('rentals')}
             >
               Rentals
@@ -239,6 +239,11 @@ function App() {
         />
       )}
       </main>
+      <footer className="border-t border-gray-200 bg-white">
+        <div className="max-w-4xl mx-auto px-4 py-4 text-center text-sm text-gray-600">
+          © {new Date().getFullYear()} Book Rental
+        </div>
+      </footer>
     </div>
   )
 }
