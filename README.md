@@ -53,6 +53,19 @@ Notes:
 - The Vite dev server proxies API calls from `/api` to `http://localhost:8080` (see `frontend/vite.config.js`).
 - Ensure MySQL is running and accessible with the configured credentials before starting the backend.
 
+## Unit testing
+
+Run all tests (JUnit + Mockito):
+
+```bash
+cd backend
+./mvnw test
+```
+
+Included tests (examples):
+- `BookServiceImplTest` — default availability on create; update fields keeping availability; update sets availability when provided; delete not-found.
+- `RentalServiceImplTest` — create marks book UNAVAILABLE and prevents double-rent; update with return date marks AVAILABLE; delete active rental restores availability; create throws when book not found.
+
 ## API endpoints
 
 Base URL: `http://localhost:8080`
@@ -104,6 +117,13 @@ Response models:
 - `BookResponse`: `{ id, title, author, genre, availabilityStatus }`
 - `RentalResponse`: `{ id, username, rentalDate, returnDate, book: BookResponse }`
 
+## Postman collection
+
+Import `Book Rental API.postman_collection.json` into Postman. It contains:
+- Correct base URL `http://localhost:8080`
+- Headers (Accept, Content-Type)
+- Example request bodies and sample responses for Books and Rentals
+
 ## Assumptions and additional features
 
 - Rental date is required on create; return date is optional.
@@ -112,6 +132,18 @@ Response models:
 - Tailwind styling with a clean navigation header and tab-like toggle between Books and Rentals.
 - Manage Books includes editing `availabilityStatus`.
 - Dev-time CORS is handled via Vite proxy; no backend CORS config required for local dev.
+
+## GitHub (quick start)
+
+```bash
+cd C:\Users\user\Desktop\book-rental-app
+git init
+git add .
+git commit -m "Initial commit: book-rental-app"
+git branch -M main
+git remote add origin https://github.com/sohanfernando/book-rental-system.git
+git push -u origin main
+```
 
 ## Tech stack
 
