@@ -19,20 +19,20 @@ function Rentals({
 			<section className="animate-fade-in">
 				<div className="card p-8">
 					<div className="flex items-center mb-6">
-						<div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center mr-4">
-							<svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center mr-4 dark:from-blue-600/20 dark:to-blue-700/20">
+							<svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
 							</svg>
 						</div>
 						<div>
-							<h2 className="text-xl font-bold text-gray-900">Rent a Book</h2>
-							<p className="text-gray-600">Create a new rental for a book</p>
+							<h2 className="text-xl font-bold text-gray-900 dark:text-white">Rent a Book</h2>
+							<p className="text-gray-600 dark:text-gray-300">Create a new rental for a book</p>
 						</div>
 					</div>
 					
 					<form onSubmit={handleRentBook} className="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div>
-							<label className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Name</label>
 							<input 
 								className="input-field" 
 								placeholder="Enter your full name" 
@@ -43,7 +43,7 @@ function Rentals({
 						</div>
 						
 						<div>
-							<label className="block text-sm font-medium text-gray-700 mb-1">Select Book</label>
+							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Select Book</label>
 							<select 
 								className="select-field" 
 								value={rentalForm.bookId} 
@@ -60,7 +60,7 @@ function Rentals({
 						</div>
 						
 						<div>
-							<label className="block text-sm font-medium text-gray-700 mb-1">Rental Date</label>
+							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Rental Date</label>
 							<input 
 								className="input-field" 
 								type="date" 
@@ -71,7 +71,7 @@ function Rentals({
 						</div>
 						
 						<div>
-							<label className="block text-sm font-medium text-gray-700 mb-1">Return Date (Optional)</label>
+							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Return Date (Optional)</label>
 							<input 
 								className="input-field" 
 								type="date" 
@@ -96,45 +96,45 @@ function Rentals({
 			<section className="animate-fade-in">
 				<div className="flex items-center justify-between mb-6">
 					<div>
-						<h2 className="text-2xl font-bold text-gray-900">Active Rentals</h2>
-						<p className="text-gray-600 mt-1">Books currently rented out</p>
+						<h2 className="text-2xl font-bold text-gray-900 dark:text-white">Active Rentals</h2>
+						<p className="text-gray-600 dark:text-gray-300 mt-1">Books currently rented out</p>
 					</div>
 					<div className="flex items-center space-x-2">
 						<div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-						<span className="text-sm text-gray-600">{activeRentals.length} active</span>
+						<span className="text-sm text-gray-600 dark:text-gray-300">{activeRentals.length} active</span>
 					</div>
 				</div>
 				
 				{loadingRentals ? (
 					<div className="flex items-center justify-center py-12">
 						<div className="loading-spinner"></div>
-						<span className="ml-3 text-gray-600">Loading rentals...</span>
+						<span className="ml-3 text-gray-600 dark:text-gray-300">Loading rentals...</span>
 					</div>
 				) : (
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 						{activeRentals.map(rental => (
 							<div key={rental.id} className="card p-6">
 								<div className="flex items-start justify-between mb-4">
-									<div className="w-12 h-12 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-lg flex items-center justify-center">
-										<svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<div className="w-12 h-12 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-lg flex items-center justify-center dark:from-yellow-600/20 dark:to-yellow-700/20">
+										<svg className="w-6 h-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
 										</svg>
 									</div>
 									<span className="status-badge status-rented">Rented</span>
 								</div>
 								
-								<h3 className="font-bold text-gray-900 mb-2">{rental.book?.title}</h3>
-								<p className="text-gray-600 text-sm mb-1">by {rental.book?.author}</p>
-								<p className="text-gray-500 text-xs mb-4">Rented by {rental.username}</p>
+								<h3 className="font-bold text-gray-900 dark:text-white mb-2">{rental.book?.title}</h3>
+								<p className="text-gray-600 dark:text-gray-300 text-sm mb-1">by {rental.book?.author}</p>
+								<p className="text-gray-500 dark:text-gray-400 text-xs mb-4">Rented by {rental.username}</p>
 								
 								<div className="space-y-2 mb-4">
 									<div className="flex justify-between text-xs">
-										<span className="text-gray-500">Rental Date:</span>
-										<span className="text-gray-700">{rental.rentalDate}</span>
+										<span className="text-gray-500 dark:text-gray-400">Rental Date:</span>
+										<span className="text-gray-700 dark:text-gray-300">{rental.rentalDate}</span>
 									</div>
 									<div className="flex justify-between text-xs">
-										<span className="text-gray-500">Return Date:</span>
-										<span className="text-gray-700">Not returned</span>
+										<span className="text-gray-500 dark:text-gray-400">Return Date:</span>
+										<span className="text-gray-700 dark:text-gray-300">Not returned</span>
 									</div>
 								</div>
 								
@@ -163,13 +163,13 @@ function Rentals({
 						{activeRentals.length === 0 && (
 							<div className="col-span-full">
 								<div className="text-center py-12">
-									<div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-										<svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-gray-700">
+										<svg className="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
 										</svg>
 									</div>
-									<h3 className="text-lg font-medium text-gray-900 mb-2">No active rentals</h3>
-									<p className="text-gray-600">All books are currently available!</p>
+									<h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">No active rentals</h3>
+									<p className="text-gray-600 dark:text-gray-300">All books are currently available!</p>
 								</div>
 							</div>
 						)}
@@ -181,19 +181,19 @@ function Rentals({
 			<section className="animate-fade-in">
 				<div className="flex items-center justify-between mb-6">
 					<div>
-						<h2 className="text-2xl font-bold text-gray-900">Rental History</h2>
-						<p className="text-gray-600 mt-1">Completed rentals</p>
+						<h2 className="text-2xl font-bold text-gray-900 dark:text-white">Rental History</h2>
+						<p className="text-gray-600 dark:text-gray-300 mt-1">Completed rentals</p>
 					</div>
 					<div className="flex items-center space-x-2">
 						<div className="w-3 h-3 bg-green-500 rounded-full"></div>
-						<span className="text-sm text-gray-600">{returnedRentals.length} returned</span>
+						<span className="text-sm text-gray-600 dark:text-gray-300">{returnedRentals.length} returned</span>
 					</div>
 				</div>
 				
 				{loadingRentals ? (
 					<div className="flex items-center justify-center py-12">
 						<div className="loading-spinner"></div>
-						<span className="ml-3 text-gray-600">Loading rentals...</span>
+						<span className="ml-3 text-gray-600 dark:text-gray-300">Loading rentals...</span>
 					</div>
 				) : (
 					<div className="space-y-4">
@@ -201,24 +201,24 @@ function Rentals({
 							<div key={rental.id} className="card p-6">
 								<div className="flex items-center justify-between">
 									<div className="flex items-center space-x-4">
-										<div className="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center">
-											<svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<div className="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center dark:from-green-600/20 dark:to-green-700/20">
+											<svg className="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
 											</svg>
 										</div>
 										<div>
-											<h3 className="font-bold text-gray-900">{rental.book?.title}</h3>
-											<p className="text-gray-600 text-sm">by {rental.book?.author}</p>
-											<p className="text-gray-500 text-xs">Rented by {rental.username}</p>
+											<h3 className="font-bold text-gray-900 dark:text-white">{rental.book?.title}</h3>
+											<p className="text-gray-600 dark:text-gray-300 text-sm">by {rental.book?.author}</p>
+											<p className="text-gray-500 dark:text-gray-400 text-xs">Rented by {rental.username}</p>
 										</div>
 									</div>
 									
 									<div className="text-right">
 										<div className="space-y-1">
-											<div className="text-xs text-gray-500">
+											<div className="text-xs text-gray-500 dark:text-gray-400">
 												<span>Rented: {rental.rentalDate}</span>
 											</div>
-											<div className="text-xs text-gray-500">
+											<div className="text-xs text-gray-500 dark:text-gray-400">
 												<span>Returned: {rental.returnDate}</span>
 											</div>
 										</div>
@@ -237,13 +237,13 @@ function Rentals({
 						
 						{returnedRentals.length === 0 && (
 							<div className="text-center py-12">
-								<div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-									<svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 dark:bg-gray-700">
+									<svg className="w-8 h-8 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 									</svg>
 								</div>
-								<h3 className="text-lg font-medium text-gray-900 mb-2">No rental history</h3>
-								<p className="text-gray-600">Rent some books to see them here!</p>
+								<h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">No rental history</h3>
+								<p className="text-gray-600 dark:text-gray-300">Rent some books to see them here!</p>
 							</div>
 						)}
 					</div>
